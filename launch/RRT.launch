@@ -1,0 +1,23 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+
+    ################ map server ################
+    <node pkg="map_server" name="map_server" type="map_server" args="$(find RRT)/maps/gmapping-005.yaml"/>
+
+    ################ start RRT node ################
+    <node pkg="RRT" type="RRT" name="rrt" output="screen" >
+    
+        <param name="Euclidean" value="true"/>
+        <param name="OccupyThresh" value="-1"/>
+        <param name="InflateRadius" value="0.25"/>
+        <param name="rate" value="10"/>
+        <param name="goal_sample_rate" value=0.05/>
+        <param name="extend_dis" value=10/>
+        <param name="max_iteration" value=3000/>
+
+    </node>
+
+    ################ start rviz ################
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find RRT)/rviz/RRT.rviz"/>
+
+</launch>

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/lilinghao/test/motion_plan_ws/src/RRT/build/devel/setup.sh
