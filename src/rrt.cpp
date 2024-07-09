@@ -104,7 +104,7 @@ Node* RRT::FindPath()
     cv::Mat _LabelMap = LabelMap.clone();
 
     //初始化起始节点
-    Node StartNode(startPoint,nullptr);
+    Node* StartNode = new Node(startPoint,nullptr);
     node_list.clear();
     node_list.push_back(StartNode);
 
@@ -122,11 +122,13 @@ Node* RRT::FindPath()
         }
         //判断是否在可行区域内
         if(inside_extend_area(new_point) && obstacle_free(new_point,nearst_Node)){
-            Node new_Node(new_point, nearest_iter);
+            Node* new_Node = new Node(new_point, nearest_iter);
             node_list.push_back(new_Node);
             //ROS_INFO("find a new node:x=%d ,y=%d",new_Node.point.x,new_Node.point.y);
         }
-        if(node_list.back().point == targetPoint){
+
+        if(node_list.back()->point == targetPoint)
+        {
             break;
         }
     int node_list_length = node_list.size();
@@ -134,14 +136,14 @@ Node* RRT::FindPath()
         //Node new_node(expendNode(nearst_Node),nearest_iter);
     }
 
-    Node* nowptr = &node_list.back();
-    for(std::vector<Node>::iterator debug_ite = node_list.begin();debug_ite != node_list.end();debug_ite++)
+    Node* nowptr = node_list.back();
+    for(std::vector<Node*>::iterator debug_ite = node_list.begin();debug_ite != node_list.end();debug_ite++)
     {
-        ROS_INFO("%p",debug_ite->parent);
+        ROS_INFO("%p",(*debug_ite)->parent);
     }
 
 
-    return &node_list.back();
+    return node_list.back();
 
 }
 
@@ -158,7 +160,7 @@ void RRT::GetPath(Node *TailNode, std::deque<cv::Point> &path)
             ROS_INFO("Current Node: %p, Parent Node: %p", nowptr, nowptr->parent);
             std::cout<<flag++<<"  "<<node_list.size()<<std::endl;
             nowptr = nowptr->parent;
-            if(nowptr == &(*node_list.begin())){
+            if(nowptr == *node_list.begin()){
                 ROS_INFO("return to startpoint");
                 break;
             }
@@ -189,17 +191,17 @@ cv::Point RRT::sample_free()
     return rand_point;
 }
 
-Node* RRT::get_nearest_node_idx(std::vector<Node>&_node_list,cv::Point& _rand_point)
+Node* RRT::get_nearest_node_idx(std::vector<Node*>&_node_list,cv::Point& _rand_point)
 {
-    std::vector<Node>::iterator nearest_node_idx;
+    std::vector<Node*>::iterator nearest_node_idx;
     int shortest_twoPoint_distance = 100000;
-    for(std::vector<Node>::iterator node_list_iter = _node_list.begin();node_list_iter != _node_list.end();node_list_iter++)
+    for(std::vector<Node*>::iterator node_list_iter = _node_list.begin();node_list_iter != _node_list.end();node_list_iter++)
     {
-        double twoPoint_distance = abs(node_list_iter->point.x - _rand_point.x)+
-        abs(node_list_iter->point.y - _rand_point.y);
+        double twoPoint_distance = abs((*node_list_iter)->point.x - _rand_point.x)+
+        abs((*node_list_iter)->point.y - _rand_point.y);
         nearest_node_idx = twoPoint_distance < shortest_twoPoint_distance ? node_list_iter : nearest_node_idx;
     }
-    return &(*nearest_node_idx);
+    return *nearest_node_idx;
 }
 
 cv::Point RRT::extend_point(Node& _nearest_node,cv::Point& _rand_point)

@@ -71,14 +71,14 @@ public:
         int thickness, cv::Scalar maskcolor);
 
     cv::Point sample_free();
-    Node* get_nearest_node_idx(std::vector<Node>&_node_list,cv::Point& _rand_point);
+    Node* get_nearest_node_idx(std::vector<Node*>&_node_list,cv::Point& _rand_point);
     cv::Point extend_point(Node& _nearest_node,cv::Point& _rand_point);
     bool inside_extend_area(cv::Point& _new_point);
     bool obstacle_free(cv::Point&new_point,Node& nearst_Node);
     double distence_to_target(cv::Point& _new_point);
 
 
-    std::vector<Node> node_list;
+    std::vector<Node*> node_list;
 
 private:
     cv::Mat Map;
