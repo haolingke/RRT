@@ -159,6 +159,7 @@ int main(int argc,char * argv[])
 
             ROS_INFO("start planning path");
             std::deque<cv::Point> PathList;
+            PathList.resize(4000);
             rrt.PathPlanning(startPoint,targetPoint,PathList);
             if(!PathList.empty())
             {

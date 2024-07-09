@@ -71,7 +71,7 @@ public:
         int thickness, cv::Scalar maskcolor);
 
     cv::Point sample_free();
-    std::vector<Node>::iterator get_nearest_node_idx(std::vector<Node>&_node_list,cv::Point& _rand_point);
+    Node* get_nearest_node_idx(std::vector<Node>&_node_list,cv::Point& _rand_point);
     cv::Point extend_point(Node& _nearest_node,cv::Point& _rand_point);
     bool inside_extend_area(cv::Point& _new_point);
     bool obstacle_free(cv::Point&new_point,Node& nearst_Node);
