@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(RRT)
+project(rrt)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -24,5 +24,5 @@ include
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(${PROJECT_NAME} src/main.cpp src/RRT.cpp src/OccMapTransform.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp src/rrt.cpp src/OccMapTransform.cpp)
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${OpenCV_LIBS})

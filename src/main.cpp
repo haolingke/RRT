@@ -70,7 +70,6 @@ void MapCallback(const nav_msgs::OccupancyGrid& msg)
     OccGridMask.header.frame_id = "map";
     OccGridMask.info = msg.info;
     OccGridMask.data.clear();
-    ROS_INFO("1");
     for(int i=0;i<height;i++){
         for(int j=0;j<width;j++){
             OccProb = Mask.at<uchar>(height-i-1,j)*255;
@@ -111,6 +110,10 @@ void TargetPointCallback(const geometry_msgs::PoseStamped& msg)
     {
         start_flag = true;
     }
+    ROS_INFO("targetPoint: %f %f %d %d", msg.pose.position.x, msg.pose.position.y,
+            targetPoint.x, targetPoint.y);
+
+
 }
 
 int main(int argc,char * argv[])
@@ -175,7 +178,7 @@ int main(int argc,char * argv[])
                     path.poses.push_back(pose_stamped);
                 }
                 path_pub.publish(path);
-                double end_time = ros::Time().toSec();
+                double end_time = ros::Time::now().toSec();
                 ROS_INFO("Find a valid path successfully! Use %f s", end_time - start_time);
             }
             else{
@@ -187,7 +190,7 @@ int main(int argc,char * argv[])
         if(map_flag)
         {
             mask_pub.publish(OccGridMask);
-            ROS_INFO("mask published");
+            // ROS_INFO("mask published");
         }
         loop_rate.sleep();
         ros::spinOnce();

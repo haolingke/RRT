@@ -1,19 +1,19 @@
 [
 {
   "directory": "/home/lilinghao/test/motion_plan_ws/src/RRT/build",
-  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"RRT\\\" -I../include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/RRT.dir/src/main.cpp.o -c /home/lilinghao/test/motion_plan_ws/src/RRT/src/main.cpp",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rrt\\\" -I../include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/rrt.dir/src/main.cpp.o -c /home/lilinghao/test/motion_plan_ws/src/RRT/src/main.cpp",
   "file": "/home/lilinghao/test/motion_plan_ws/src/RRT/src/main.cpp"
 },
 
 {
   "directory": "/home/lilinghao/test/motion_plan_ws/src/RRT/build",
-  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"RRT\\\" -I../include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/RRT.dir/src/RRT.cpp.o -c /home/lilinghao/test/motion_plan_ws/src/RRT/src/RRT.cpp",
-  "file": "/home/lilinghao/test/motion_plan_ws/src/RRT/src/RRT.cpp"
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rrt\\\" -I../include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/rrt.dir/src/rrt.cpp.o -c /home/lilinghao/test/motion_plan_ws/src/RRT/src/rrt.cpp",
+  "file": "/home/lilinghao/test/motion_plan_ws/src/RRT/src/rrt.cpp"
 },
 
 {
   "directory": "/home/lilinghao/test/motion_plan_ws/src/RRT/build",
-  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"RRT\\\" -I../include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/RRT.dir/src/OccMapTransform.cpp.o -c /home/lilinghao/test/motion_plan_ws/src/RRT/src/OccMapTransform.cpp",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rrt\\\" -I../include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/rrt.dir/src/OccMapTransform.cpp.o -c /home/lilinghao/test/motion_plan_ws/src/RRT/src/OccMapTransform.cpp",
   "file": "/home/lilinghao/test/motion_plan_ws/src/RRT/src/OccMapTransform.cpp"
 },
 

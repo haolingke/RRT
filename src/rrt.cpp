@@ -1,7 +1,7 @@
 // created by lililinghao on 24-07-5
 
 #include "RRT.h"
-
+#include <ros/ros.h>
 
 namespace pathplanning{
 
@@ -98,13 +98,15 @@ void RRT::MapProcess(cv::Mat& Mask)
 
 Node* RRT::FindPath()
 {
+    ROS_INFO("start findPath");
     int width = Map.cols;
     int height = Map.rows;
     cv::Mat _LabelMap = LabelMap.clone();
 
-    //
+    //初始化起始节点
     Node StartNode(startPoint,nullptr);
     node_list.push_back(StartNode);
+
     for(int i=0;i<config.max_iteration;i++){
         //得到随机目标点
         cv::Point rand_point = sample_free();
@@ -119,18 +121,22 @@ Node* RRT::FindPath()
         if(inside_extend_area(new_point) && obstacle_free(new_point,nearst_Node)){
             Node new_Node(new_point,&(*nearest_iter));
             node_list.push_back(new_Node);
+            ROS_INFO("find a new node:x=%s ,y=%s",new_Node.point.x,new_Node.point.y);
         }
-        if(node_list.end()->point == targetPoint){
+        if(node_list.back().point == targetPoint){
             break;
         }
         //Node new_node(expendNode(nearst_Node),nearest_iter);
-        return &(node_list.back());
     }
+    return &(node_list.back());
 
 }
 
 void RRT::GetPath(Node *TailNode, std::deque<cv::Point> &path)
-{   Node *nowptr = TailNode;
+{   
+    
+    path.clear();
+    Node *nowptr = TailNode;
     while(nowptr != nullptr){
         path.push_front(nowptr->point);
         nowptr = nowptr->parent;
@@ -140,6 +146,7 @@ void RRT::GetPath(Node *TailNode, std::deque<cv::Point> &path)
 
 cv::Point RRT::sample_free()
 {
+    ROS_INFO("start sample");
     std::random_device rd;
     std::uniform_int_distribution<int> target_probility_dist(0,1000);
     std::uniform_int_distribution<int> rand_sample_dist(0,config.rand_area);
@@ -151,6 +158,7 @@ cv::Point RRT::sample_free()
         rand_point.x = rand_sample_dist(rd); 
         rand_point.y = rand_sample_dist(rd);
     }
+    ROS_INFO("sample finished,x=%s,y=%s",rand_point.x,rand_point.y);
     return rand_point;
 }
 
@@ -195,7 +203,8 @@ bool RRT::inside_extend_area(cv::Point& _new_point)
 
 bool RRT::obstacle_free(cv::Point&_new_point,Node& _nearst_Node){
     //没想好怎么写，暂时只考虑终点不碰撞
-    return LabelMap.at<uchar>(_new_point.x,_new_point.y == free);
+    // return LabelMap.at<uchar>(_new_point.x,_new_point.y == free);
+    return true;
 }
 
 double RRT::distence_to_target(cv::Point& _new_point){

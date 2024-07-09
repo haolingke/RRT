@@ -1223,7 +1223,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "RRT"
+			"value" : "rrt"
 		},
 		{
 			"name" : "CMAKE_PROJECT_VERSION",
@@ -2696,6 +2696,30 @@
 			],
 			"type" : "PATH",
 			"value" : "/opt/ros/noetic/share/rostime/cmake"
+		},
+		{
+			"name" : "rrt_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/lilinghao/test/motion_plan_ws/src/RRT/build"
+		},
+		{
+			"name" : "rrt_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/lilinghao/test/motion_plan_ws/src/RRT"
 		},
 		{
 			"name" : "sensor_msgs_DIR",

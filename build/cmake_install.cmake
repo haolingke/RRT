@@ -129,18 +129,18 @@ file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES "/home/lilinghao/test/moti
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lilinghao/test/motion_plan_ws/src/RRT/build/catkin_generated/installspace/RRT.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lilinghao/test/motion_plan_ws/src/RRT/build/catkin_generated/installspace/rrt.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/RRT/cmake" TYPE FILE FILES
-    "/home/lilinghao/test/motion_plan_ws/src/RRT/build/catkin_generated/installspace/RRTConfig.cmake"
-    "/home/lilinghao/test/motion_plan_ws/src/RRT/build/catkin_generated/installspace/RRTConfig-version.cmake"
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rrt/cmake" TYPE FILE FILES
+    "/home/lilinghao/test/motion_plan_ws/src/RRT/build/catkin_generated/installspace/rrtConfig.cmake"
+    "/home/lilinghao/test/motion_plan_ws/src/RRT/build/catkin_generated/installspace/rrtConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/RRT" TYPE FILE FILES "/home/lilinghao/test/motion_plan_ws/src/RRT/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rrt" TYPE FILE FILES "/home/lilinghao/test/motion_plan_ws/src/RRT/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)

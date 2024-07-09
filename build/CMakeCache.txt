@@ -208,7 +208,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=RRT
+CMAKE_PROJECT_NAME:STATIC=rrt
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=1.10.0
@@ -507,6 +507,12 @@ rospy_DIR:PATH=/opt/ros/noetic/share/rospy/cmake
 
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/noetic/share/rostime/cmake
+
+//Value Computed by CMake
+rrt_BINARY_DIR:STATIC=/home/lilinghao/test/motion_plan_ws/src/RRT/build
+
+//Value Computed by CMake
+rrt_SOURCE_DIR:STATIC=/home/lilinghao/test/motion_plan_ws/src/RRT
 
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/noetic/share/sensor_msgs/cmake

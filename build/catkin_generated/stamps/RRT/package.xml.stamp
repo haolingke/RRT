@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>RRT</name>
+  <name>rrt</name>
   <version>0.0.0</version>
-  <description>The RRT package</description>
+  <description>The rrt package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
